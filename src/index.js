@@ -15,8 +15,8 @@ const store = createStore(reducers, applyMiddleware(thunk))
 ReactDOM.render(
   (
     <Provider store={store} >
-      <Router history={history}>
-        <Route path='/:filter?' component={App} />
+      <Router history={history} >
+        <Route path="/:filter?" component={App} />
       </Router>
     </Provider>
   ), document.querySelector('#root')
