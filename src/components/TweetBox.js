@@ -19,13 +19,16 @@ class TweetBox extends React.Component {
 
   render(){
     return (
-      <form onSubmit={this.handleSubmit} >
-        <h4>Add a Tweet</h4>
-        <textarea onChange={this.handleChange} value={this.state.tweet} />
-        <div>
-          <button>Submit Tweet</button>
-        </div>
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit} >
+          <h4>Add a Tweet</h4>
+          <textarea onChange={this.handleChange} value={this.state.tweet} />
+          <div>
+            <button>Submit Tweet</button>
+          </div>
+        </form>
+        <button onClick={this.props.fetchTweets}>Fetch Tweets</button>
+      </div>
     )
   }
 }

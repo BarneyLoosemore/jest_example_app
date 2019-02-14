@@ -7,20 +7,11 @@ export const saveTweet = (tweet) => {
   }
 }
 
-export const fetchTweets = async () => {
+export const fetchTweets = () => async dispatch => {
   const response = await fetch('https://jsonplaceholder.typicode.com/comments')
-
-  return {
-    type: FETCH_TWEETS,
-    payload: response
-  }
-}
-
-export const fetchRecipes = () => async dispatch => {
-  const response = await fetch('http://localhost:3000/api/v1/recipes')
-  const recipes = await response.json()
+  const tweets = await response.json()
   dispatch({
-    type: 'FETCH_RECIPES',
-    payload: recipes
+    type: FETCH_TWEETS,
+    payload: tweets
   })
 }
