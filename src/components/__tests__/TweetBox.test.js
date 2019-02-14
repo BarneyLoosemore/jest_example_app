@@ -1,12 +1,19 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import reducers from 'reducers'
+import thunk from 'redux-thunk'
 
 import TweetBox from 'components/TweetBox'
 
 let component
 
 beforeEach( () => {
-    component = mount(<TweetBox />)
+    component = mount(
+    <Provider store={createStore(reducers, applyMiddleware(thunk))}>
+        <TweetBox />
+    </Provider>)
 })
 
 afterEach( () => component.unmount() )
