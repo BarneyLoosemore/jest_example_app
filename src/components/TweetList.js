@@ -1,11 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const TweetList = (props) => {
-  return (
-    <div>
-      TweetList
-    </div>
-  )
+class TweetList extends React.Component {
+
+  renderTweets = () => {
+    return this.props.tweets.map(tweet => 
+      <li key={tweet}>{tweet}</li>
+    )
+  }
+
+  render(){
+    return (
+      <div>
+        <ul>
+          {this.renderTweets()}
+        </ul>
+      </div>
+    )
+  }
 }
 
-export default TweetList
+const mapStateToProps = (state) => {
+  return { tweets: state.tweets }
+}
+
+export default connect(mapStateToProps)(TweetList)

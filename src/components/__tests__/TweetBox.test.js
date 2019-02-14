@@ -2,11 +2,17 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import TweetBox from 'components/TweetBox'
+import Root from 'Root'
+
 
 let component
 
 beforeEach(() => {
-  component = mount(<TweetBox />)
+  component = mount(
+    <Root>
+      <TweetBox />
+    </Root>
+  )
 })
 
 afterEach(() => {

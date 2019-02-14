@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "history": "^4.7.2",
+    "moxios": "^0.4.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",
@@ -14,6 +16,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
     "redux": "^4.0.1",
+    "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "thunk": "0.0.1"
   },
@@ -21,7 +24,7 @@
     "start": "cross-env NODE_PATH=src react-scripts start",
     "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "cross-env NODE_PATH=src react-scripts test",
-    "eject": "cross-env NODE_PATH=src react-scripts eject" 
+    "eject": "cross-env NODE_PATH=src react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

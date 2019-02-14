@@ -1,4 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import * as actions from 'actions'
 
 class TweetBox extends React.Component {
 
@@ -9,8 +12,7 @@ class TweetBox extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    // Call an action creator
-    // and save the tweet
+    this.props.saveTweet(this.state.tweet)
 
     this.setState({ tweet: '' })
   }
@@ -28,4 +30,4 @@ class TweetBox extends React.Component {
   }
 }
 
-export default TweetBox
+export default connect(null, actions)(TweetBox)
