@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
 
 import * as actions from 'actions'
 
@@ -27,10 +28,15 @@ class TweetBox extends React.Component {
             <button>Submit Tweet</button>
           </div>
         </form>
-        <button onClick={this.props.fetchTweets}>Fetch Tweets</button>
+        <button className='fetch-tweets' onClick={this.props.fetchTweets}>Fetch Tweets</button>
       </div>
     )
   }
 }
 
 export default connect(null, actions)(TweetBox)
+
+TweetBox.propTypes = {
+  saveTweet: PropTypes.func.isRequired,
+  fetchTweets: PropTypes.func.isRequired
+}

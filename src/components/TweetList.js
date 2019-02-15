@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 class TweetList extends React.Component {
 
@@ -25,3 +26,8 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(TweetList)
+
+TweetList.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  tweets: PropTypes.array.isRequired
+}

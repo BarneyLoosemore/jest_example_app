@@ -8,7 +8,7 @@ export const saveTweet = (tweet) => {
 }
 
 export const fetchTweets = () => async dispatch => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/comments')
+  const response = await fetch('http://jsonplaceholder.typicode.com/comments')
   const tweets = await response.json()
   dispatch({
     type: FETCH_TWEETS,
