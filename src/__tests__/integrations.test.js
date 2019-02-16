@@ -20,7 +20,8 @@ afterEach(() => {
 })
 
 
-it('can fetch a list of tweets and display them', (done) => {
+// function occurs asynchronously
+it('can fetch a list of tweets and display them', async () => {
 
   // declare a variable equivalent to the component architecture
   // of the app
@@ -33,22 +34,18 @@ it('can fetch a list of tweets and display them', (done) => {
   // find the button with the class-name of 'fetch-tweets'
   //  and simulate a click event on it
   component.find('.fetch-tweets').simulate('click')
-  
-  // allow time for the fetchMock request to be made, and 
-  // a response to be returned before test expectation executed
-  setTimeout(() => {
-    // force our application to update, i.e. display the newly fetched props as <li>'s
-    component.update()
 
-    // expect the our new tweet list to be equal to the 
-    // number returned in the response from our fetchMock request
-    expect(component.find('li').length).toEqual(2)
+  // await a promise returned from the .flush() method, that resolves
+  // when all fetchMock fetches have resolved
+  await fetchMock.flush(true)
 
-    // finish the test, & not prematurely 
-    done()
 
-    // unmount/cleanup our application component from our 
-    // test/CL DOM in order to avoid side-effects
-    component.unmount()
-  }, 100)
+  // force the component/app to update, to reflect the changes to props
+  component.update()
+  expect(component.find('li').length).toEqual(2)
+
+  // cleanup/unmount the component/application from the faked DOM
+  // in order to prevent side effects in future tests
+  component.unmount()
+
 })
